@@ -1,0 +1,40 @@
+[
+    {
+      "comment_body": "It simplifies the relation between them!",
+      "date_created": "April 20, 2023",
+      "user_id": 2,
+      "post_id": 1
+    },
+    {
+      "comment_body": "I can see what he meant",
+      "date_created": "July 2, 2023",
+      "user_id": 3,
+      "post_id": 1
+    },
+    {
+      "comment_body": "Exactly",
+      "date_created": "March 18, 2023",
+      "user_id": 3,
+      "post_id": 2
+    },
+    {
+      "comment_body": "Thanks, used to confuse me",
+      "date_created": "November 1, 2023",
+      "user_id": 1,
+      "post_id": 2
+    },
+    {
+      "comment_body": "lol",
+      "date_created": "September 28, 2023",
+      "user_id": 2,
+      "post_id": 3
+    },
+    {
+      "comment_body": "Simplify maintenance by providing tools to manage database schema changes.",
+      "date_created": "October 30, 2023",
+      "user_id": 1,
+      "post_id": 3
+    }
+  ]
+
+  
