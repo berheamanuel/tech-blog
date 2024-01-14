@@ -1,0 +1,88 @@
+/* General page styles */
+
+header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  }
+  
+  body {
+    background-color: #425bd7;
+  }
+  
+  h1 {
+    font-family: "Jomolhari", serif;
+    background-color: #449397;
+    color: #fff;
+    padding: 16px;
+    margin-bottom: 5px;
+  }
+  
+  #blogName {
+    color: #b7eb6b;
+  }
+  
+  main {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: -5px;
+    background-color: #425bd7;
+  }
+  
+  .homepage-main {
+    margin-top: 34px;
+  }
+  
+  .user-name {
+    background-color: #425bd7;
+  }
+  
+  .blogPost-main {
+    margin-top: 34px;
+  }
+  
+  /* Nav styles */
+  
+  .navBar {
+    background-color: #425bd7;
+  }
+  
+  #logout {
+    background-color: #425bd7;
+  }
+  
+  /* Input/textarea styles */
+  
+  #titleInput,
+  #bodyInput,
+  #comment,
+  #email-login,
+  #password-login,
+  #name-signup,
+  #email-signup,
+  #password-signup {
+    background-color: #425bd7;
+  }
+  
+  /* Button styles */
+  
+  .btn {
+    background-color: #425bd7;
+  }
+  
+  /* Card styles */
+  
+  .card-header {
+    background-color: #425bd7;
+  }
+  
+  .card-body {
+    background-color: #425bd7;
+  }
+  
+  .card {
+    background-color: #425bd7;
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+  }
