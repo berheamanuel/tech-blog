@@ -5,25 +5,25 @@ header {
   }
   
   body {
-    background-color: #425bd7;
+    background-color: #fff;
   }
   
   h1 {
     font-family: "Jomolhari", serif;
-    background-color: #449397;
-    color: #fff;
+    background-color: #ffff;
+    color: #040404;
     padding: 16px;
     margin-bottom: 5px;
   }
   
   #blogName {
-    color: #b7eb6b;
+    color: #0e1404;
   }
   
   main {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: -5px;
-    background-color: #425bd7;
+    background-color: #cdd0de;
   }
   
   .homepage-main {
@@ -31,7 +31,7 @@ header {
   }
   
   .user-name {
-    background-color: #425bd7;
+    background-color: #d7d8e0;
   }
   
   .blogPost-main {
@@ -41,11 +41,11 @@ header {
   /* Nav styles */
   
   .navBar {
-    background-color: #425bd7;
+    background-color: #e1e2e9;
   }
   
   #logout {
-    background-color: #425bd7;
+    background-color: #d4d6e1;
   }
   
   /* Input/textarea styles */
@@ -58,27 +58,27 @@ header {
   #name-signup,
   #email-signup,
   #password-signup {
-    background-color: #425bd7;
+    background-color: #e8e9ee;
   }
   
   /* Button styles */
   
   .btn {
-    background-color: #425bd7;
+    background-color: #d7d9df;
   }
   
   /* Card styles */
   
   .card-header {
-    background-color: #425bd7;
+    background-color: #f4f4f6;
   }
   
   .card-body {
-    background-color: #425bd7;
+    background-color: #e4e5e7;
   }
   
   .card {
-    background-color: #425bd7;
+    background-color: #eff0f4;
   }
   
   .card:hover {

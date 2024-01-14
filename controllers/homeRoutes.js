@@ -132,7 +132,7 @@ router.get("/create/:id", async (req, res) => {
 
     if (req.session.logged_in) {
       res.render("edit", {
-        ...blogPost,
+        ...post,
         logged_in: req.session.logged_in,
         userId: req.session.user_id,
       });
