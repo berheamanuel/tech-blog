@@ -1,7 +1,7 @@
 /* General page styles */
 
 header {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
   body {
@@ -9,7 +9,7 @@ header {
   }
   
   h1 {
-    font-family: "Jomolhari", serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #ffff;
     color: #040404;
     padding: 16px;
