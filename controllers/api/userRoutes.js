@@ -5,13 +5,15 @@ const { User } = require("../../models");
 router.post("/", async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const userData = await User.create({ name, email, password });
-    // name: req.body.name,
-    // email: req.body.email,
-    // password: req.body.password,
+    const userData = await User.create({ 
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+  });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.name = userData.name;
       req.session.logged_In = true;
 
       res.status(200).json(userData);
@@ -49,6 +51,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = dbUserData.id;
+      req.session.name = dbUserData.name;
       req.session.logged_In = true;
 
       res
