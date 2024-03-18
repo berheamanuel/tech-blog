@@ -7,6 +7,12 @@ const withAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({
+      attributes: [
+        'id',
+        'post_text',
+        'title',
+        'created_at',
+      ],
       include: [
         {
           model: User,
@@ -14,7 +20,11 @@ router.get("/", async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ["comment_body"],
+          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          include: {
+            model: User,
+            attributes: ["name"],
+          },
         },
       ],
     });
@@ -25,7 +35,7 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       posts,
       // Pass the logged in flag to the template
-      logged_in: req.session.logged_in,
+      logged_In: req.session.logged_In,
     });
   } catch (err) {
     console.log(err);
@@ -38,6 +48,7 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
+      attributes: [ "id", "post_text", "title", "created_at"],
       include: [
         {
           model: User,
@@ -45,21 +56,30 @@ router.get("/post/:id", withAuth, async (req, res) => {
         },
         {
           model: Comment,
-          include: [User],
+          attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+          include:{
+            model: User,
+            attributes: ["name"],
+          },
+          
         },
       ],
     });
+    if (!postData) {
+      res.status(404).json({ message: "No post found with this id!" });
+      return;
+    }
 
     const post = postData.get({ plain: true });
     console.log(post);
 
     res.render("post", {
       ...post,
-      logged_in: req.session.logged_in,
+      logged_In: req.session.logged_In,
     });
   } catch (err) {
     res.status(500).json(err);
-    res.redirect("/login");
+    res.redirect("/");
   }
 });
 
@@ -85,7 +105,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
     res.render("dashboard", {
       ...user,
-      logged_in: true,
+      logged_In: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -95,9 +115,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
 // Renders 'create.handlebars'; redirects to /login if not logged in
 router.get("/create", async (req, res) => {
   try {
-    if (req.session.logged_in) {
+    if (req.session.logged_In) {
       res.render("create", {
-        logged_in: req.session.logged_in,
+        logged_In: req.session.logged_In,
         userId: req.session.user_id,
       });
       return;
@@ -130,10 +150,10 @@ router.get("/create/:id", async (req, res) => {
     const post = postData.get({ plain: true });
     console.log(post);
 
-    if (req.session.logged_in) {
+    if (req.session.logged_In) {
       res.render("edit", {
         ...post,
-        logged_in: req.session.logged_in,
+        logged_in: req.session.logged_In,
         userId: req.session.user_id,
       });
       return;
@@ -146,13 +166,22 @@ router.get("/create/:id", async (req, res) => {
   }
 });
 
-router.all("/login", (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect("/dashboard");
+router.get("/login", (req, res) => {
+  if (req.session.logged_In) {
+    res.redirect("/");
     return;
   }
 
   res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  if (req.session.logged_In) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("signup");
 });
 
 // Export
