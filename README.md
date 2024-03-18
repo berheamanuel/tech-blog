@@ -1,3 +1,10 @@
+# Tech-Blog
+
+## Description
+
+This Model View Controller app allows users to signup/login, add posts and comment to posts, delete and update post, update and delete comment.
+
+## [Deployed App Link](https://ema-tech-blog-app-aa4b5d47017b.herokuapp.com/)
 
 ## User Story
 
@@ -40,3 +47,39 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 * THEN I am signed out of the site
 * WHEN I am idle on the site for more than a set time
 * THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
+
+## App Screenshot
+
+![log in page](./public/images/longin.png)
+![logged User](./public/images/logged%20user.png)
+
+## Technology Used
+
+* JavaScript
+* Node.js
+* CSS
+* Handlebars
+* Express
+* Express-Handlebars
+* MySQL2
+* Dotenv
+* Sequelize
+* Heroku
+
+## Reference
+
+* MVC class activity 
+* [MySQL Docs](https://dev.mysql.com/doc/)
+
+## Installation
+
+1. Clone the repo
+2. Install required dependencies and MySQL
+3. Source the database using MySQL command
+4. Run 'npm run seeds' on command line
+5. Run "npm start" for the port to start listening.
+6. OR run Heroku deployed app
+
+## License
+
+* MIT License
