@@ -9,9 +9,9 @@ router.get("/", async (req, res) => {
     const postData = await Post.findAll({
       attributes: [
         'id',
-        'post_text',
+        'description',
         'title',
-        'created_at',
+        'date_created',
       ],
       include: [
         {
@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          attributes: ['id', 'comment_body', 'post_id', 'user_id', 'date_created'],
           include: {
             model: User,
             attributes: ["name"],
@@ -48,7 +48,7 @@ router.get("/", async (req, res) => {
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
-      attributes: [ "id", "post_text", "title", "created_at"],
+      attributes: [ "id", "description", "title", "date_created"],
       include: [
         {
           model: User,
@@ -56,7 +56,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+          attributes: ["id", "comment_body", "post_id", "user_id", "date_created"],
           include:{
             model: User,
             attributes: ["name"],
@@ -153,7 +153,7 @@ router.get("/create/:id", async (req, res) => {
     if (req.session.logged_In) {
       res.render("edit", {
         ...post,
-        logged_in: req.session.logged_In,
+        logged_In: req.session.logged_In,
         userId: req.session.user_id,
       });
       return;
