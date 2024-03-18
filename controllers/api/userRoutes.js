@@ -1,6 +1,45 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+router.get("/", async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ["password"] },
+    });
+    res.json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+    try {
+      const userData = await User.findByPk(req.params.id, {
+        attributes: { exclude: ["password"] },
+        include: [
+          {
+            model: Post,
+            attributes: ["id", "title", "post_text", "created_at"],
+          },
+          {
+            model: Comment,
+            attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+            include: {
+              model: Post,
+              attributes: ["title"],
+            },
+          },
+          {
+            model: Post,
+            attributes: ["title"],
+          },
+        ],
+      });
+      res.json(userData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 // CREATE new user/sign up
 router.post("/", async (req, res) => {
   try {
